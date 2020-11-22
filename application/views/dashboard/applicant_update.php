@@ -35,7 +35,6 @@ $id = $this->uri->segment(3);
                 <div class="card-header">Update Applicant</div>
                 <div class="card-body">
                     <?php
-
                     $applicant_list = $this->db->get_where('applicants', array('id' => $id));
                     foreach ($applicant_list->result() as $applicant) {
                     ?>

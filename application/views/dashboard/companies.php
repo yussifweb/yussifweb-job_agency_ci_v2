@@ -25,12 +25,7 @@ if (!$_SESSION['name']) {
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12 col-sm-3">
-                <!-- sidebar -->
-                <?php $this->load->view('dashboard/inc/sidebar'); ?>
-                <!-- sidebar -->
-            </div>
-            <div class="col-12 col-sm-9">
+            <div class="col-12 col-sm-10 offset-sm-1 mb-5">
                 <div class="row">
                     <?php
                     $company_list = $this->db->get('companies');
@@ -39,13 +34,13 @@ if (!$_SESSION['name']) {
                         <div class="col-12 col-sm-4 mb-5">
                             <div class="card">
                                 <div class="card-header text-center"><?php echo $company->name; ?></div>
-                                <img src="companies/<?php echo $company->image; ?>" class="card-img-top" alt="<?php echo $company->name; ?>">
+                                <img src="<?php echo site_url(); ?>uploads/companies/<?php echo $company->image; ?>" class="card-img-top" alt="<?php echo $company->name; ?>">
                                 <div class="card-body">
                                     <h5 class="card-title text-center"><?php echo $company->name; ?></h5>
                                     <p class="card-text text-center"><?php echo $company->email; ?></p>
                                 </div>
                                 <div class="card-footer">
-                                    <span><a href="<?php echo site_url(); ?>companies/company_details/<?php echo $company->id ?>" class="btn btn-primary btn-sm">Details</a></span>
+                                    <span><a href="<?php echo site_url(); ?>companies/single_company/<?php echo $company->id ?>" class="btn btn-primary btn-sm">Details</a></span>
                                     <span><a href="<?php echo site_url(); ?>companies/company_update/<?php echo $company->id ?>" class="btn btn-info btn-sm">Update</a></span>
                                     <span><a href="<?php echo site_url(); ?>companies/company_delete/<?php echo $company->id ?>" class="btn btn-danger btn-sm">Delete</a></span>
                                 </div>
@@ -55,7 +50,12 @@ if (!$_SESSION['name']) {
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-12 col-sm-4 offset-sm-4">
+                <a href="<?php echo site_url(); ?>companies/add_company" class="btn btn-success btn-lg btn-block" role="button">Add New Company</a>
+            </div>
+        </div>
+
     </div>
 
 

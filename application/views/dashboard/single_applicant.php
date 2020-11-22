@@ -31,6 +31,7 @@ $id = $this->uri->segment(3);
                 $applicant_list = $this->db->get_where('applicants', array('id' => $id));
                 foreach ($applicant_list->result() as $applicant) {
                 ?>
+                <div class="card">
                     <div class="card-header text-center"><?php echo $applicant->f_name . ' ' . $applicant->l_name; ?></div>
                     <img class="details card-img-top" src="<?php echo base_url(); ?>uploads/applicants/<?php echo $applicant->image; ?>" alt="<?php echo $applicant->f_name; ?>">
 
@@ -244,7 +245,8 @@ $id = $this->uri->segment(3);
                         <span><a href="<?php echo site_url(); ?>applicants/applicant_update/<?php echo $applicant->id ?>" class="btn btn-info btn-sm">Update</a></span>
                         <span><a href="<?php echo site_url(); ?>applicants/applicant_delete/<?php echo $applicant->id ?>" class="btn btn-danger btn-sm">Delete</a></span>
                     </div>
-            </div>
+                </div>
+
         <?php
                 } ?>
         </div>

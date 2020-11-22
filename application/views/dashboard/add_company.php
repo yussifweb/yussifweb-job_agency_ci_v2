@@ -14,12 +14,13 @@ if (!$_SESSION['name']) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/mdb.lite.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/script.js"></script>
 
-    <title>Add Job | <?php echo $_SESSION['name']; ?></title>
+    <title>Add Company | <?php echo $_SESSION['name']; ?></title>
 </head>
 
 <body>
@@ -32,8 +33,7 @@ if (!$_SESSION['name']) {
             <div class="card">
                 <div class="card-header">Add New Company</div>
                 <div class="card-body">
-                    
-                    <?php echo form_open_multipart('companies/add_company'); ?>
+                    <?php echo form_open_multipart('companies/add_company_process'); ?>
 
                     <div class="form-group">
                         <label for="name" id="name-label">Name</label>
@@ -45,7 +45,7 @@ if (!$_SESSION['name']) {
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" id="age" name="address" placeholder="Address" required>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
                     </div>
 
                     <div class="form-group">
@@ -77,7 +77,7 @@ if (!$_SESSION['name']) {
                     <!-- get user ID -->
 
                     <div class="form-row">
-                        <div class="col-12 col-sm-4">
+                        <div class="col-12 col-sm-5">
                             <span class="img-div">
                                 <div class="text-center img-placeholder" onClick="triggerClick()">
                                     <h4>Upload image</h4>

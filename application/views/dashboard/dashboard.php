@@ -14,6 +14,7 @@ if (!$_SESSION['name']) {
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/mdb.lite.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
   <title>Welcome | <?php echo $_SESSION['name']; ?></title>
@@ -31,8 +32,8 @@ if (!$_SESSION['name']) {
           <h1 class="welcome">Welcome To Job Center</h1>
           <p class="lead">Get started here......</p>
           <hr class="my-4">
-          <a class="btn btn-primary btn-lg" href="status.php" role="button">Check Report</a>
-          <a class="btn btn-primary btn-lg" href="company.php" role="button">Add Company</a>
+          <a class="btn btn-primary btn-lg" href="<?php echo site_url(); ?>applicants/status" role="button">Check Report</a>
+          <a class="btn btn-primary btn-lg" href="<?php echo site_url(); ?>companies/add_company" role="button">Add Company</a>
           <a class="btn btn-primary btn-lg" href="<?php echo site_url(); ?>applicants/add_applicant" role="button">Add Applicant</a>
         </div>
       </div>

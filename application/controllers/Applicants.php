@@ -22,6 +22,11 @@ public function index()
         $this->load->view('dashboard/single_applicant', $id);
     }
 
+    public function status()
+    {
+        $this->load->view('dashboard/status');
+    }
+
     public function add_applicant()
     {
       $this->load->view('dashboard/add_applicant');

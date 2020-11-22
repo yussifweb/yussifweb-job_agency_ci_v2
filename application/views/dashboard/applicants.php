@@ -25,7 +25,7 @@ if (!$_SESSION['name']) {
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12 col-sm-10 offset-sm-1">
+            <div class="col-12 col-sm-10 offset-sm-1 mb-5">
                 <div class="row">
                     <?php
                     $applicant_list = $this->db->get('applicants');
@@ -40,7 +40,7 @@ if (!$_SESSION['name']) {
                                     <p class="card-text text-center"><?php echo $applicant->email; ?></p>
                                     <p class="card-text text-center"><?php echo $applicant->phone; ?></p>
                                 </div>
-                                <div class="card-footer">
+                                <div class="card-footer m-0">
                                     <span><a href="<?php echo site_url(); ?>applicants/single_applicant/<?php echo $applicant->id ?>" class="btn btn-primary btn-sm">Details</a></span>
                                     <span><a href="<?php echo site_url(); ?>applicants/applicant_update/<?php echo $applicant->id ?>" class="btn btn-info btn-sm">Update</a></span>
                                     <span><a href="<?php echo site_url(); ?>applicants/applicant_delete/<?php echo $applicant->id ?>" class="btn btn-danger btn-sm">Delete</a></span>
@@ -52,6 +52,12 @@ if (!$_SESSION['name']) {
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-sm-4 offset-sm-4">
+                <a href="<?php echo site_url(); ?>applicants/add_applicant" class="btn btn-success btn-lg btn-block" role="button">Add New Applicant</a>
+            </div>
+        </div>
+
     </div>
 
 

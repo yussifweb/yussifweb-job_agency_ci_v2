@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
                         
-class Applicants_list extends CI_Model {
+class Companies_list extends CI_Model {
                         
-public function insert_applicant($applicants_data){
-     $this->db->insert('applicants', $applicants_data);                
+public function insert_company($companies_data){
+     $this->db->insert('companies', $companies_data);                
                                 
 }                        
                         
