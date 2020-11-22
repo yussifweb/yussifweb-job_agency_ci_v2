@@ -33,7 +33,7 @@ if (!$_SESSION['name']) {
             <div class="card">
                 <div class="card-header">Add New applicant</div>
                 <div class="card-body">
-                    <?php echo form_open('applicants/add_applicant_process'); ?>
+                    <?php echo form_open_multipart('applicants/add_applicant_process'); ?>
 
                     <div class="h3">PERSONAL INFORMATION</div>
                     <div class="form-row">
@@ -382,6 +382,7 @@ if (!$_SESSION['name']) {
                                 <?php } ?>
                             </select>
                         </div>
+                    </div>
                         <!-- Select Company -->
 
                         <!-- get user ID -->
@@ -403,10 +404,11 @@ if (!$_SESSION['name']) {
                                 <input type="file" name="image" onChange="updatedImage(this)" id="image" class="form-control" style="display: none;">
                                 <label>Upload Image</label>
                             </div>
-
-                            <input id="submit" class="btn-block btn btn-success" type="submit" name="add_applicant" value="Submit" />
-                            <?php echo form_close(); ?>
                         </div>
+
+                        <input id="submit" class="btn-block btn btn-success" type="submit" name="add_applicant" value="Submit" />
+                        <?php echo form_close(); ?>
+
 
                     </div>
                 </div>

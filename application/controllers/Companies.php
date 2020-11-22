@@ -32,7 +32,7 @@ public function index()
       $this->load->view('dashboard/company_update', $id);
     }
 
-    public function update_company_process($id)
+    public function company_update_process($id)
     {
         if ($this->input->post('update_company')) {
 
@@ -46,20 +46,26 @@ public function index()
 
             $image = $_FILES['image']['name'];
             if ($image) {
+                $newimg = str_replace(' ', '', $name);
+                $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+                $image = $newimg . '_' . $phone . '.' . $ext;
                 $config['upload_path']          = './uploads/companies/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|GIF|JPG|JPEG|PNG';
                 $config['max_size']             = 300;
                 $config['max_width']            = 720;
                 $config['max_height']           = 720;
+                $config['overwrite']           = TRUE;
+                $config['file_name']  = $image;
+                
 
                 $this->load->library('upload', $config);
 
                 if (!$this->upload->do_upload('image')) {
                     $error = array('error' => $this->upload->display_errors());
-                    $this->load->view('update_company', $error);
+                    $this->load->view('dashboard/update_company', $error);
                 } else {
                     $data = array('upload_data' => $this->upload->data());
-                    $image = $_FILES['image']['name'];
+                    $image = $image;
                 }
             } elseif (!$image) {
                 $company_list = $this->db->get_where('companies', array('id' => $id));
@@ -97,21 +103,26 @@ public function index()
             $district = $this->input->post('district');
             $user_id = $this->input->post('user_id');
 
+            $image = $_FILES["image"]['name'];
+            $newimg = str_replace(' ', '', $name);
+            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+            $image = $newimg .'_'. $phone . '.'.$ext;
             $config['upload_path']          = './uploads/companies/';
             $config['allowed_types']        = 'gif|jpg|png|GIF|JPG|JPEG|PNG';
             $config['max_size']             = 300;
             $config['max_width']            = 720;
             $config['max_height']           = 720;
+            $config['file_name']  = $image;            
 
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('image')) {
                 $error = array('error' => $this->upload->display_errors());
 
-                $this->load->view('add_company', $error);
+                $this->load->view('dashboard/add_company', $error);
             } else {
                 $data = array('upload_data' => $this->upload->data());
-                $image = $_FILES['image']['name'];
+                $image = $image;
             }
 
             $company_data = array(

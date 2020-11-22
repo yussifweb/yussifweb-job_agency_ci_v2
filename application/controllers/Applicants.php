@@ -97,13 +97,18 @@ public function index()
             $job_title = $this->input->post('job_title');
             $statusRadios = $this->input->post('statusRadios');
             $company = $this->input->post('company');
+
             $image = $_FILES['image']['name'];
             if ($image) {
-                $config['upload_path']          = './uploads/applicants/';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 300;
-                $config['max_width']            = 720;
-                $config['max_height']           = 720;
+                $newimg = str_replace(' ', '', $f_name);
+                $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+                $image = $newimg . '_' . $phone . '.' . $ext;
+                $config['upload_path']   = './uploads/applicants/';
+                $config['allowed_types']   = 'gif|jpg|png|GIF|JPG|JPEG|PNG';
+                $config['max_size']   = 300;
+                $config['max_width']  = 720;
+                $config['max_height']  = 720;
+                $config['file_name']  = $image;
 
                 $this->load->library('upload', $config);
 
@@ -113,7 +118,7 @@ public function index()
                     $this->load->view('update_applicant', $error);
                 } else {
                     $data = array('upload_data' => $this->upload->data());
-                    $image = $_FILES['image']['name'];
+                    $image = $image;
                 }
             } elseif (!$image) {
                 $applicant_list = $this->db->get_where('applicants', array('id' => $id));
@@ -249,11 +254,17 @@ public function index()
             $company = $this->input->post('company');
             $user_id = $this->input->post('user_id');
 
+            $image = $_FILES["image"]['name'];
+            $newimg = str_replace(' ', '', $f_name);
+            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+            $image = $newimg . '_' . $phone . '.' . $ext;
             $config['upload_path']          = './uploads/applicants/';
-            $config['allowed_types']        = 'gif|jpg|png';
+            $config['allowed_types']        = 'gif|jpg|png|GIF|JPG|JPEG|PNG';
             $config['max_size']             = 300;
             $config['max_width']            = 720;
             $config['max_height']           = 720;
+            $config['file_name']  = $image;
+            
 
             $this->load->library('upload', $config);
 
@@ -263,7 +274,7 @@ public function index()
                 $this->load->view('add_applicant', $error);
             } else {
                 $data = array('upload_data' => $this->upload->data());
-                $image = $_FILES['image']['name'];
+                $image = $image;
             }
 
 
