@@ -1,4 +1,30 @@
 ###################
+CodeIgniter Job Agency Management System
+###################
+
+*******************
+Features(In Development)
+*******************
+-  `LogIn Page`_
+-  `Dashboard`_
+-  `User Registration Page`_
+-  `Add, Edit, View and Delete Jobs`_
+-  `Add, Edit, View and Delete Companies`_
+-  `Add, Edit, View and Delete Applicants`_
+-  `Applicants Report Page`_
+
+This project was bootstrapped by `CodeIgniter <https://codeigniter.com>`_ 
+
+
+###################
+ Technologies
+###################
+HTML
+CSS
+JavaScript
+Bootstrap
+
+###################
 What is CodeIgniter
 ###################
 
