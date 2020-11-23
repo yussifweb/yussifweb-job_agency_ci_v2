@@ -373,7 +373,7 @@ if (!$_SESSION['name']) {
                         <!-- Select Company -->
                         <div class="form-group">
                             <label for="company">Company</label>
-                            <select class="form-control" name="job" id="dropdown">
+                            <select class="form-control" name="company" id="dropdown">
                                 <option value="-">-</option>
                                 <?php
                                 $company_list = $this->db->get('companies');

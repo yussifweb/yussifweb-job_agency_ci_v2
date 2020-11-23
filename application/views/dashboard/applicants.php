@@ -43,7 +43,28 @@ if (!$_SESSION['name']) {
                                 <div class="card-footer m-0">
                                     <span><a href="<?php echo site_url(); ?>applicants/single_applicant/<?php echo $applicant->id ?>" class="btn btn-primary btn-sm">Details</a></span>
                                     <span><a href="<?php echo site_url(); ?>applicants/applicant_update/<?php echo $applicant->id ?>" class="btn btn-info btn-sm">Update</a></span>
-                                    <span><a href="<?php echo site_url(); ?>applicants/applicant_delete/<?php echo $applicant->id ?>" class="btn btn-danger btn-sm">Delete</a></span>
+                                    <span><button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button></span>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel">Delete Applicant?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete the Applicant?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <a href="<?php echo site_url(); ?>applicants/applicant_delete/<?php echo $applicant->id ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
@@ -52,6 +73,7 @@ if (!$_SESSION['name']) {
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-12 col-sm-4 offset-sm-4">
                 <a href="<?php echo site_url(); ?>applicants/add_applicant" class="btn btn-success btn-lg btn-block" role="button">Add New Applicant</a>

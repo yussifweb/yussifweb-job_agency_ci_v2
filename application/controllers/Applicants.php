@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
 class Applicants extends CI_Controller {
 
-
 public function __construct()
 {
     parent::__construct();
@@ -330,7 +329,7 @@ public function index()
                 'prev_wkplc_end' => $prev_wkplc_end,
                 'reason' => $reason,
                 'ref_nm' => $ref_nm,
-                'ref_cont,' => $ref_cont,
+                'ref_cont' => $ref_cont,
                 'paymentRadios' => $paymentRadios,
                 'statusRadios' => $statusRadios,
                 'job_title' => $job_title,
@@ -350,6 +349,7 @@ public function index()
         $this->db->delete('applicants');
         redirect('applicants', 'refresh');
     }
+
         
 }        
     /* End of file Applicants.php */                          
