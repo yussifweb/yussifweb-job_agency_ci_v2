@@ -8,10 +8,11 @@ Features(In Development)
 -  LogIn Page
 -  Dashboard
 -  User Registration Page
+-  User Password reset
 -  Add, Edit, View and Delete Jobs
 -  Add, Edit, View and Delete Companies
 -  Add, Edit, View and Delete Applicants
--  Applicants Report Page`
+-  Applicants Report Page
 
 This project was bootstrapped by `CodeIgniter <https://codeigniter.com>`_ 
 

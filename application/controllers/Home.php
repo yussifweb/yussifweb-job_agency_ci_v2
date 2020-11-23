@@ -58,13 +58,15 @@ class Home extends CI_Controller {
           $password = md5($this->input->post('password'));
         }else {
           echo "Password doesn't match";
-        }      
+        }
+        $level = 50;      
 
         $user_data = array(
           'name' => $name,
           'contact' => $contact,
           'email' => $email,
-          'password' => $password
+          'password' => $password,
+          'level' => $level
         );
 
         $this->Users->register_user($user_data);
@@ -117,6 +119,9 @@ class Home extends CI_Controller {
             $this->db->where('id', $id);
             $this->db->update('users', $user_data);
           }}}
+          $this->db->where('token', $token);
+          $this->db->delete('reset');
+
           redirect('home', 'refresh');
       }
   
