@@ -75,7 +75,7 @@ if (!$_SESSION['name']) {
         </div>
         
         <div class="row">
-            <div class="col-12 col-sm-4 offset-sm-4">
+            <div class="col-12 col-sm-4 offset-sm-4 mb-5">
                 <a href="<?php echo site_url(); ?>applicants/add_applicant" class="btn btn-success btn-lg btn-block" role="button">Add New Applicant</a>
             </div>
         </div>

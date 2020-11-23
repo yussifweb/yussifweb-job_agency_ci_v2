@@ -34,12 +34,11 @@ $id = $this->uri->segment(3);
             <div class="card">
                 <div class="card-header">Update Applicant</div>
                 <div class="card-body">
-                    <?php
-                    $applicant_list = $this->db->get_where('applicants', array('id' => $id));
-                    foreach ($applicant_list->result() as $applicant) {
-                    ?>
-                        <?php echo form_open_multipart('applicants/update_applicant_process/' . $applicant->id); ?>
-
+                    <?php echo form_open_multipart('applicants/update_applicant_process/' . $id); ?>
+                        <?php
+                        $applicant_list = $this->db->get_where('applicants', array('id' => $id));
+                        foreach ($applicant_list->result() as $applicant) {
+                        ?>
                         <div class="h3">PERSONAL INFORMATION </div>
                         <div class="form-row">
                             <div class="md-form col-12 col-sm-6">

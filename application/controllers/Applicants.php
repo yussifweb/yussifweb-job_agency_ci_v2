@@ -107,7 +107,7 @@ public function index()
                 $config['max_size']   = 300;
                 $config['max_width']  = 720;
                 $config['max_height']  = 720;
-                $config['overwrite']           = TRUE;
+                $config['overwrite'] = TRUE;
                 $config['file_name']  = $image;
 
                 $this->load->library('upload', $config);
