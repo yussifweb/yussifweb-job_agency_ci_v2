@@ -96,7 +96,7 @@ public function index()
             $job_title = $this->input->post('job_title');
             $statusRadios = $this->input->post('statusRadios');
             $company = $this->input->post('company');
-
+            
             $image = $_FILES['image']['name'];
             if ($image) {
                 $newimg = str_replace(' ', '', $f_name);
@@ -107,14 +107,14 @@ public function index()
                 $config['max_size']   = 300;
                 $config['max_width']  = 720;
                 $config['max_height']  = 720;
+                $config['overwrite']           = TRUE;
                 $config['file_name']  = $image;
 
                 $this->load->library('upload', $config);
 
                 if (!$this->upload->do_upload('image')) {
                     $error = array('error' => $this->upload->display_errors());
-
-                    $this->load->view('update_applicant', $error);
+                    $this->load->view('dashboard/update_applicant', $error);
                 } else {
                     $data = array('upload_data' => $this->upload->data());
                     $image = $image;
@@ -262,6 +262,7 @@ public function index()
             $config['max_size']             = 300;
             $config['max_width']            = 720;
             $config['max_height']           = 720;
+            $config['overwrite']           = TRUE;
             $config['file_name']  = $image;
             
 

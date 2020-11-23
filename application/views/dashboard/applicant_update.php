@@ -38,7 +38,7 @@ $id = $this->uri->segment(3);
                     $applicant_list = $this->db->get_where('applicants', array('id' => $id));
                     foreach ($applicant_list->result() as $applicant) {
                     ?>
-                        <?php echo form_open('applicants/update_applicant_process/' . $applicant->id); ?>
+                        <?php echo form_open_multipart('applicants/update_applicant_process/' . $applicant->id); ?>
 
                         <div class="h3">PERSONAL INFORMATION </div>
                         <div class="form-row">
@@ -419,7 +419,7 @@ $id = $this->uri->segment(3);
                                         </div>
                                         <img src="<?php echo base_url(); ?>uploads/applicants/<?php echo $applicant->image; ?>" onClick="triggerClick()" class="card-img-top" id="imageUpdate">
                                     </span>
-                                    <input type="file" name="image" onChange="updatedImage(this)" id="image" style="display: none;">
+                                    <input type="file" name="image" onChange="updatedImage(this)" id="image" style="display: none;" />
                                     <label>Upload Image</label>
                                 </div>
                             </div>

@@ -85,7 +85,7 @@ $id = $this->uri->segment(3);
                                         </div>
                                         <img src="<?php echo base_url(); ?>uploads/companies/<?php echo $company->image; ?>" onClick="triggerClick()" class="card-img-top" id="imageUpdate">
                                     </span>
-                                    <input type="file" name="image" onChange="updatedImage(this)" id="image" style="display: none;">
+                                    <input type="file" name="image" onChange="updatedImage(this)" id="image" style="display: none;" />
                                     <label>Upload Image</label>
                                 </div>
 
