@@ -7,16 +7,15 @@ class Users extends CI_Model {
 public function register_user($user_data){
 $this->db->insert('users', $user_data);                                
 }
-                        
-public function login(){
-                        
+
+public function reset_process($reset_data){
+$this->db->insert('reset', $reset_data);                                
+}
+                    
+public function login(){                       
                                 
-}
-                        
-                            
+}                           
                         
 }
                         
-/* End of file Users.php */
-    
-                        
+/* End of file Users.php */                       
