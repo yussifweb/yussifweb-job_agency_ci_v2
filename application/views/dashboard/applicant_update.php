@@ -158,14 +158,14 @@ $id = $this->uri->segment(3);
                                     <input type="radio" class="custom-control-input" id="marstatInline3" name="mar_statRadios" value="Divorced" <?php if ($applicant->mar_statRadios == "Divorced") {
                                                                                                                                                     echo "checked";
                                                                                                                                                 } ?>>
-                                    <label class="custom-control-label" for="marstatInline1">Divorced</label>
+                                    <label class="custom-control-label" for="marstatInline3">Divorced</label>
                                 </div>
                                 <!-- marstat inline -->
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" class="custom-control-input" id="marstatInline4" name="mar_statRadios" value="Widowed" <?php if ($applicant->mar_statRadios == "Widowed") {
                                                                                                                                                     echo "checked";
                                                                                                                                                 } ?>>
-                                    <label class="custom-control-label" for="marstatInline2">Widowed</label>
+                                    <label class="custom-control-label" for="marstatInline4">Widowed</label>
                                 </div>
                             </div>
                         </div>

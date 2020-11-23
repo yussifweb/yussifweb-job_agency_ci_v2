@@ -136,12 +136,12 @@ if (!$_SESSION['name']) {
                             <!-- marstat inline 1-->
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="marstatInline3" name="mar_statRadios" value="Divorced">
-                                <label class="custom-control-label" for="marstatInline1">Divorced</label>
+                                <label class="custom-control-label" for="marstatInline3">Divorced</label>
                             </div>
                             <!-- marstat inline -->
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="marstatInline4" name="mar_statRadios" value="Widowed">
-                                <label class="custom-control-label" for="marstatInline2">Widowed</label>
+                                <label class="custom-control-label" for="marstatInline4">Widowed</label>
                             </div>
 
                         </div>
