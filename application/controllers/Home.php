@@ -88,52 +88,38 @@ class Home extends CI_Controller {
     $this->load->view('inc/footer');
   }
 
-  public function reset_password()
-        {
-            $token = $this->uri->segment(4);         
-            $cleanToken = $this->security->xss_clean($token);
-            $email = $this->db->get_where('reset', array('email' => $token));
-            $userInfo = $this->db->get_where('users', array('email' => $email));
+  public function reset_password($token)
+  {
+    $this->load->view('inc/header');
+    $this->load->view('reset_password', $token);
+    $this->load->view('inc/footer');
+  }
 
-            $userInfo = $cleanToken; //either false or array();               
-            
-            if(!$userInfo){
-                $this->session->set_flashdata('flash_message', 'Token is invalid or expired');
-                redirect(site_url().'main/login');
-            }            
-            $data = array(
-                'email'=>$userInfo->email,                
-                'token'=>$token
-            );
-                       
-            if ($this->form_validation->run() == FALSE) {   
-                $this->load->view('header');
-                $this->load->view('reset_password', $data);
-                $this->load->view('footer');
-            }else{
-                                
-                $this->load->library('password');                 
-                $post = $this->input->post(NULL, TRUE);                
-                $cleanPost = $this->security->xss_clean($post);                
-                $hashed = $this->password->create_hash($cleanPost['password']);                
-                $cleanPost['password'] = $hashed;
-                $cleanPost['user_id'] = $user_info->id;
-                unset($cleanPost['passconf']);                
-                if(!$this->user_model->updatePassword($cleanPost)){
-                    $this->session->set_flashdata('flash_message', 'There was a problem updating your password');
-                }else{
-                    $this->session->set_flashdata('flash_message', 'Your password has been updated. You may now login');
-                }
-                redirect(site_url().'main/login');                
+  public function reset_password_process($token)
+      {
+            if ($this->input->post('reset')) {
+            if ($this->input->post('new_password') == $this->input->post('new_password2')) {
+                $new_password = md5($this->input->post('new_password'));
+            } else {
+              echo "Password doesn't match";
             }
-        }
-  // public function reset_pass_process()
-  // {
-  //   $this->load->view('inc/header');
-  //   $this->load->view('reset_pass_process/token');
-  //   $this->load->view('inc/footer');
-  // }
 
+            $user_data = array('password' => $new_password );
+
+          $resets = $this->db->get_where('reset', array('token' => $token));
+          foreach ($resets->result() as $reset) {
+            $email = $reset->email;
+
+          $userInfos = $this->db->get_where('users', array('email' => $email));
+          foreach ($userInfos->result() as $userInfo) {
+            $id = $userInfo->id; 
+
+            $this->db->where('id', $id);
+            $this->db->update('users', $user_data);
+          }}}
+          redirect('home', 'refresh');
+      }
+  
     public function reset_process(){
                 $email = $this->input->post('email');  
                 $clean = $this->security->xss_clean($email);
@@ -153,7 +139,7 @@ class Home extends CI_Controller {
 
                 $this->Users->reset_process($reset_data);
 
-                $url = site_url() . 'home/reset_password/token/' . $token;
+                $url = site_url() . 'home/reset_password/' . $token;
                 $link = "<html>
                 <head>
                   <title>Password Reset</title>
