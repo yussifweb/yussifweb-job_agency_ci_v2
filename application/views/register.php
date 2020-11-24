@@ -11,24 +11,24 @@
                     <?php echo form_open('home/register_process'); ?>
                     <div class="form-group">
                         <label for="name" id="name-label">Name</label>
-                        <input type="text" id="name" class="form-control" name="name" placeholder="Please Enter Your Name" required>
+                        <input type="text" id="name" class="form-control" name="name" value="<?php echo set_value('name'); ?>" placeholder="Please Enter Your Name" required>
                     </div>
                     <div class="form-group">
                         <label for="contact" id="contact-label">Contact</label>
-                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Please Enter Your contact" required>
+                        <input type="text" class="form-control" id="contact" name="contact" value="<?php echo set_value('contact'); ?>" placeholder="Please Enter Your contact" required>
                     </div>
                     <div class="form-group">
                         <label for="email" id="email-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Please Enter Your Email" required>
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Please Enter Your Email" required>
                         <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="password" id="password-label">Password</label>
-                        <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
+                        <input type="password" id="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>" placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <label for="password" id="password-label">Re-enter Password</label>
-                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password" required>
+                        <label for="password" id="password-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="password2" id="password2" value="<?php echo set_value('password2'); ?>" placeholder="Confirm Password" required>
                         <?php echo form_error('password2', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
