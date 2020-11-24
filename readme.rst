@@ -14,11 +14,11 @@ Features(In Development)
 -  Add, Edit, View and Delete Applicants
 -  Applicants Report Page
 
-This project was bootstrapped by `CodeIgniter <https://codeigniter.com>`_ 
+This project's was backend was bootstrapped by `CodeIgniter <https://codeigniter.com>`_ 
 
 
 ###################
- Technologies
+Frontend Technologies
 ###################
 - HTML
 - CSS
