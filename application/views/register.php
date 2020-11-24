@@ -7,7 +7,7 @@
                 <div class="card-header text-center h3">JobCenter</div>
                 <div class="card-body">
                     <h4 class="h5 font-weight-normal text-center">Sign Up <br /><img class="my-auto" src="<?php echo base_url(); ?>assets/images/bootstrap-solid.svg" alt="" width="72" height="72"></h4>
-                    <?php echo validation_errors(); ?>
+                    <!-- <?php echo validation_errors(); ?> -->
                     <?php echo form_open('home/register_process'); ?>
                     <div class="form-group">
                         <label for="name" id="name-label">Name</label>
@@ -20,6 +20,7 @@
                     <div class="form-group">
                         <label for="email" id="email-label">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Please Enter Your Email" required>
+                        <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="password" id="password-label">Password</label>
@@ -28,6 +29,7 @@
                     <div class="form-group">
                         <label for="password" id="password-label">Re-enter Password</label>
                         <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password" required>
+                        <?php echo form_error('password2', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-sm btn-primary" name="register" type="submit" value="Sign Up" />
