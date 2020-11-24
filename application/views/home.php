@@ -16,11 +16,6 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
           </div>
-          <!-- <div class="checkbox mb-3">
-                          <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                          </label>
-                        </div> -->
           <div class="form-group">
             <input type="submit" class="btn btn-sm btn-primary" name="login" value="Sign in" />
             <a href="<?php echo site_url('home/register'); ?>" class="btn btn-sm btn-info" name="register" type="submit">Register</a>

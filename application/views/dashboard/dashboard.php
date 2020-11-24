@@ -17,6 +17,9 @@ if (!$_SESSION['name']) {
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/mdb.lite.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
+  <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.slim.min.js"></script>
+
+
   <title>Welcome | <?php echo $_SESSION['name']; ?></title>
 </head>
 
@@ -44,7 +47,7 @@ if (!$_SESSION['name']) {
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.slim.min.js"></script>
+  
   <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 </body>
 

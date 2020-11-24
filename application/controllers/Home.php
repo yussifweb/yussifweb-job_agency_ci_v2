@@ -1,4 +1,7 @@
 <?php
+
+use phpDocumentor\Reflection\Types\This;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
@@ -37,9 +40,10 @@ class Home extends CI_Controller {
         foreach ($users->result() as $user) {
           if ($user_data['name'] == $user->name && $user_data['password'] == $user->password) {
             $_SESSION['name'] = $user_data['name'];
+            $this->session->set_flashdata('user_loggedin', 'You are now logged in');
             redirect('dashboard', 'refresh');
           } else {
-            echo "<script>alert('Incorrect Name or Password')</script>";
+            $this->session->set_flashdata('login_failed', 'Login is invalid');
             redirect('home', 'refresh');
           }
           
@@ -50,17 +54,22 @@ class Home extends CI_Controller {
     }
 
     public function register_process(){
+      
       if ($this->input->post('register')) {
-        $name = $this->input->post('name');
-        $contact = $this->input->post('contact');
-        $email = $this->input->post('email');
-        if ($this->input->post('password') == $this->input->post('password_2')) {
-          $password = md5($this->input->post('password'));
-        }else {
-          echo "Password doesn't match";
-        }
-        $level = 50;      
+      $name = $this->input->post('name');
+      $contact = $this->input->post('contact');
+      $email = $this->input->post('email');
+      $password = md5($this->input->post('password'));
+      $level = 50;
 
+      $this->form_validation->set_rules('email', "email $email", 'required|is_unique[users.email]');
+      $this->form_validation->set_rules('password', 'Password', 'required');
+      $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+      if ($this->form_validation->run() === FALSE) {
+        $this->load->view('inc/header');
+        $this->load->view('register');
+        $this->load->view('inc/footer');
+      }else {
         $user_data = array(
           'name' => $name,
           'contact' => $contact,
@@ -70,12 +79,12 @@ class Home extends CI_Controller {
         );
 
         $this->Users->register_user($user_data);
-        redirect('home', 'refresh');
-      
-      }else {
+        // Set message
+        $this->session->set_flashdata('user_registered', 'You are now registered and can Log In');
         redirect('home', 'refresh');
       }
     }
+  }
 
     public function logout(){
       session_unset();
@@ -171,5 +180,5 @@ class Home extends CI_Controller {
               $this->session->set_flashdata('flash_message', 'Email sent. Please login into your email account and click on the link we sent to reset your password');
               redirect('home', 'refresh');
             }
-            
+
 }
