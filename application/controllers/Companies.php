@@ -87,6 +87,8 @@ public function index()
 
             $this->db->where('id', $id);
             $this->db->update('companies', $company_data);
+            $this->session->set_flashdata('applicant_updated', "$name has been updated successfully");
+
             redirect('companies', 'refresh');
         }
     }
@@ -138,6 +140,7 @@ public function index()
             );
 
             $this->Companies_list->insert_company($company_data);
+            $this->session->set_flashdata('company_created', "$name has been created successfully");
             redirect('companies', 'refresh');
         }
     }
@@ -146,6 +149,7 @@ public function index()
     {
         $this->db->where('id', $id);
         $this->db->delete('companies');
+        $this->session->set_flashdata('company_deleted', "Company has been deleted successfully");
         redirect('companies', 'refresh');
     }
         

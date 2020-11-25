@@ -188,6 +188,7 @@ public function index()
 
             $this->db->where('id', $id);
             $this->db->update('applicants', $applicant_data);
+            $this->session->set_flashdata('applicant_updated', "$f_name $l_name info has been updated successfully");
             redirect('applicants', 'refresh');
         }
     }
@@ -340,6 +341,8 @@ public function index()
             );
 
             $this->Applicants_list->insert_applicant($applicant_data);
+            $this->session->set_flashdata('applicant_created', "$f_name $l_name has been created successfully");
+
             redirect('applicants', 'refresh');
         }
     }
@@ -348,6 +351,7 @@ public function index()
     {
         $this->db->where('id', $id);
         $this->db->delete('applicants');
+        $this->session->set_flashdata('applicant_deleted', "Applicant has been deleted successfully");
         redirect('applicants', 'refresh');
     }
 

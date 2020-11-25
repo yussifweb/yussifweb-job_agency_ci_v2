@@ -37,38 +37,30 @@
 </script>
 
 <!-- Flash messages -->
-<?php if ($this->session->flashdata('user_registered')) : ?>
-  <?php echo '<p id="alert" class="alert alert-success">' . $this->session->flashdata('user_registered') . '</p>'; ?>
+<?php if ($this->session->flashdata('logged_in')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('logged_in') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('post_created')) : ?>
-  <?php echo '<p class="alert alert-success">' . $this->session->flashdata('post_created') . '</p>'; ?>
+<?php if ($this->session->flashdata('applicant_created')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('applicant_created') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('post_updated')) : ?>
-  <?php echo '<p class="alert alert-success">' . $this->session->flashdata('post_updated') . '</p>'; ?>
+<?php if ($this->session->flashdata('applicant_updated')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('applicant_updated') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('category_created')) : ?>
-  <?php echo '<p class="alert alert-success">' . $this->session->flashdata('category_created') . '</p>'; ?>
+<?php if ($this->session->flashdata('applicant_deleted')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('applicant_deleted') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('post_deleted')) : ?>
-  <?php echo '<p class="alert alert-success my-auto">' . $this->session->flashdata('post_deleted') . '</p>'; ?>
+<?php if ($this->session->flashdata('company_created')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('company_created') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('login_failed')) : ?>
-  <?php echo '<p class="alert alert-danger">' . $this->session->flashdata('login_failed') . '</p>'; ?>
+<?php if ($this->session->flashdata('company_updated')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('company_updated') . '</p>'; ?>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('user_loggedin')) : ?>
-  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('user_loggedin') . '</p>'; ?>
-<?php endif; ?>
-
-<?php if ($this->session->flashdata('user_loggedout')) : ?>
-  <?php echo '<p class="alert alert-success">' . $this->session->flashdata('user_loggedout') . '</p>'; ?>
-<?php endif; ?>
-
-<?php if ($this->session->flashdata('category_deleted')) : ?>
-  <?php echo '<p class="alert alert-success">' . $this->session->flashdata('category_deleted') . '</p>'; ?>
+<?php if ($this->session->flashdata('company_deleted')) : ?>
+  <?php echo '<p id="alert" class="alert alert-success text-center">' . $this->session->flashdata('company_deleted') . '</p>'; ?>
 <?php endif; ?>

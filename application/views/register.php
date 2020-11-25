@@ -7,7 +7,6 @@
                 <div class="card-header text-center h3">JobCenter</div>
                 <div class="card-body">
                     <h4 class="h5 font-weight-normal text-center">Sign Up <br /><img class="my-auto" src="<?php echo base_url(); ?>assets/images/bootstrap-solid.svg" alt="" width="72" height="72"></h4>
-                    <!-- <?php echo validation_errors(); ?> -->
                     <?php echo form_open('home/register_process'); ?>
                     <div class="form-group">
                         <label for="name" id="name-label">Name</label>
@@ -38,7 +37,7 @@
                     <?php echo form_close(); ?>
                 </div>
                 <div class="card-footer">
-                    <a href="dashboard.php" class="btn btn-success btn-lg btn-block" role="button">Dashboard</a>
+                    <a href="<?php echo site_url('dashboard'); ?>" class="btn btn-success btn-lg btn-block" role="button">Dashboard</a>
                 </div>
             </div>
 
